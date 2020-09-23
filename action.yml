@@ -1,0 +1,15 @@
+name: 'CreateMasterPR'
+description: 'Creates pull request to master'
+inputs:
+    GITHUB_TOKEN:
+        description: 'GH token'
+        required: true
+    GITHUB_EVENT_PATH:
+        description: 'GH event path'
+        required: true
+runs: 
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - ${{ inputs.GITHUB_TOKEN }}
+        - ${{ inputs.GITHUB_EVENT_PATH }}
