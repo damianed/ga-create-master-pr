@@ -3,7 +3,7 @@
 currentDate=$(date +'%B %d, %Y')
 
 body=$(jq -r . "$GITHUB_EVENT_PATH")
-echo "$body"
+echo ${GITHUB_REPOSITORY} 
 curl -sSL \
   -X POST \
   -H "Authorization: token ${GITHUB_TOKEN}" \
