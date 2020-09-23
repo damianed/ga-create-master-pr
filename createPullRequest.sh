@@ -2,7 +2,8 @@
 
 currentDate=$(date +'%B %d, %Y')
 
-body=$(jq "after.commits[].message" "$GITHUB_EVENT_PATH")
+echo $GITHUB_EVENT_PATH
+body=$(jq -r "after.commits[].message" $GITHUB_EVENT_PATH)
 echo ${GITHUB_REPOSITORY} 
 curl -sSL \
   -X POST \
